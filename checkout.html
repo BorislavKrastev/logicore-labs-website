@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryWhisper Premium - Checkout | LOGICORE LABS EOOD</title>
+    <meta name="description" content="Subscribe to StoryWhisper Premium for unlimited AI-powered children's stories.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .checkout-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .checkout-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .product-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 2rem;
+        }
+        .checkout-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .product-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .product-details h3 {
+            margin: 0 0 0.5rem 0;
+            color: #1f2937;
+        }
+        .product-details p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        .price-breakdown {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1.5rem;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+        }
+        .price-row.total {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1.1rem;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .features-included {
+            margin-top: 2rem;
+        }
+        .features-included h4 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        .features-included ul {
+            list-style: none;
+            padding: 0;
+        }
+        .features-included li {
+            padding: 0.25rem 0;
+            color: #4b5563;
+            font-size: 0.9rem;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        .form-section h3 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+        }
+        .payment-methods {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .payment-method {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .payment-method.active {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+        .checkout-button {
+            width: 100%;
+            padding: 1rem;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+        .checkout-button:hover {
+            background: #1d4ed8;
+        }
+        .security-note {
+            background: #f0f9ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+            color: #0369a1;
+            font-size: 0.9rem;
+        }
+        .mobile-checkout-note {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .mobile-checkout-note h3 {
+            color: #92400e;
+            margin: 0 0 0.5rem 0;
+        }
+        .mobile-checkout-note p {
+            color: #78350f;
+            margin: 0;
+        }
+        .app-store-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .app-store-links img {
+            height: 50px;
+        }
+        @media (max-width: 768px) {
+            .checkout-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .product-summary {
+                position: static;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h2>LOGICORE LABS</h2>
+                    <span>EOOD</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Checkout Section -->
+    <section style="padding: 120px 0 80px; background: #f8fafc;">
+        <div class="container">
+            <div class="checkout-container">
+                <div class="checkout-header">
+                    <h1>Subscribe to StoryWhisper Premium</h1>
+                    <p style="color: #6b7280; font-size: 1.1rem;">Unlock unlimited AI-powered stories for your child</p>
+                </div>
+
+                <!-- Mobile App Notice -->
+                <div class="mobile-checkout-note">
+                    <h3>📱 Mobile App Required</h3>
+                    <p>StoryWhisper subscriptions are processed through your mobile app store. Please download the StoryWhisper app to complete your subscription with secure app store billing.</p>
+                    <div class="app-store-links">
+                        <a href="https://apps.apple.com/app/storywhisper" target="_blank">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNiIgZmlsbD0iIzAwMCIvPgo8dGV4dCB4PSI2MCIgeT0iMjAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgZm9udC1mYW1pbHk9IkludGVyIiBmb250LXNpemU9IjEyIj5Eb3dubG9hZCBvbiBBcHAgU3RvcmU8L3RleHQ+Cjwvc3ZnPgo=" alt="Download on App Store">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.logicorelabs.storywhisper" target="_blank">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNiIgZmlsbD0iIzAwMCIvPgo8dGV4dCB4PSI2MCIgeT0iMjAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgZm9udC1mYW1pbHk9IkludGVyIiBmb250LXNpemU9IjEyIj5HZXQgaXQgb24gR29vZ2xlIFBsYXk8L3RleHQ+Cjwvc3ZnPgo=" alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="checkout-content">
+                    <!-- Product Summary -->
+                    <div class="product-summary">
+                        <div class="product-info">
+                            <div class="product-icon">✨</div>
+                            <div class="product-details">
+                                <h3>StoryWhisper Premium</h3>
+                                <p>Monthly Subscription</p>
+                            </div>
+                        </div>
+                        
+                        <div class="price-breakdown">
+                            <div class="price-row">
+                                <span>Monthly Subscription</span>
+                                <span>$4.99</span>
+                            </div>
+                            <div class="price-row">
+                                <span>VAT (20%)</span>
+                                <span>$1.00</span>
+                            </div>
+                            <div class="price-row total">
+                                <span>Total (incl. VAT)</span>
+                                <span>$5.99</span>
+                            </div>
+                        </div>
+
+                        <div class="features-included">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>✨ Unlimited story generation</li>
+                                <li>🎵 Premium voice narration</li>
+                                <li>📚 Complete story library access</li>
+                                <li>💾 Save unlimited stories</li>
+                                <li>📤 Share stories with family</li>
+                                <li>🚫 Ad-free experience</li>
+                                <li>⚡ Priority customer support</li>
+                                <li>🆕 Early access to new features</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding: 1rem; background: #f0f9ff; border-radius: 8px; font-size: 0.9rem; color: #0369a1;">
+                            <p style="margin: 0;"><strong>Auto-renewal:</strong> Subscription automatically renews monthly. Cancel anytime through your app store settings.</p>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Form (Demo) -->
+                    <div class="checkout-form">
+                        <div class="form-section">
+                            <h3>Subscription Details</h3>
+                            <div class="form-group">
+                                <label for="plan">Selected Plan</label>
+                                <select id="plan" name="plan">
+                                    <option value="premium-monthly">StoryWhisper Premium - Monthly ($4.99 + VAT)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Account Information</h3>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Billing Information</h3>
+                            <div class="form-group">
+                                <label for="country">Country/Region</label>
+                                <select id="country" name="country">
+                                    <option value="">Select your country</option>
+                                    <option value="BG">Bulgaria</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                    <option value="US">United States</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="fullname">Full Name</label>
+                                <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address" placeholder="123 Main Street" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" placeholder="Sofia" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">Postal Code</label>
+                                    <input type="text" id="zip" name="zip" placeholder="1000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Payment Method</h3>
+                            <div class="payment-methods">
+                                <div class="payment-method active">
+                                    <span>💳 Credit Card</span>
+                                </div>
+                                <div class="payment-method">
+                                    <span>📱 Apple Pay</span>
+                                </div>
+                                <div class="payment-method">
+                                    <span>🅖 Google Pay</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row" style="margin-top: 1rem;">
+                                <div class="form-group">
+                                    <label for="cardnumber">Card Number</label>
+                                    <input type="text" id="cardnumber" name="cardnumber" placeholder="1234 5678 9012 3456" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry">Expiry Date</label>
+                                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardholder">Cardholder Name</label>
+                                    <input type="text" id="cardholder" name="cardholder" placeholder="John Doe" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="checkout-button" onclick="showMobileRedirect()">
+                            Complete Subscription in Mobile App
+                        </button>
+
+                        <div class="security-note">
+                            🔒 Your payment information is processed securely through your app store. We never store credit card details on our servers.
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: #f8fafc; border-radius: 8px; font-size: 0.9rem; color: #4b5563; text-align: center;">
+                            <p style="margin: 0 0 0.5rem 0;">By subscribing, you agree to our <a href="terms.html" style="color: #2563eb;">Terms of Service</a> and <a href="privacy.html" style="color: #2563eb;">Privacy Policy</a>.</p>
+                            <p style="margin: 0;">Subscription automatically renews unless cancelled. Cancel anytime through your app store account.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>LOGICORE LABS EOOD</h3>
+                    <p>AI-Powered Children's Stories</p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="support.html">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LOGICORE LABS EOOD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showMobileRedirect() {
+            alert('For security and compliance, StoryWhisper subscriptions are processed through your mobile app store. Please download the StoryWhisper app from the App Store or Google Play to complete your subscription.');
+        }
+
+        // Auto-calculate VAT based on country selection
+        document.getElementById('country').addEventListener('change', function() {
+            const country = this.value;
+            const isEU = ['BG', 'DE', 'FR', 'AT', 'BE', 'CY', 'CZ', 'DK', 'EE', 'ES', 'FI', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK'].includes(country);
+            
+            // Update VAT display based on location
+            const vatRate = country === 'BG' ? 0.20 : (isEU ? 0.19 : 0); // Simplified VAT calculation
+            const basePrice = 4.99;
+            const vatAmount = basePrice * vatRate;
+            const total = basePrice + vatAmount;
+            
+            document.querySelector('.price-row:nth-child(2) span:last-child').textContent = '$' + vatAmount.toFixed(2);
+            document.querySelector('.price-row.total span:last-child').textContent = '$' + total.toFixed(2);
+        });
+    </script>
+</body>
+</html>

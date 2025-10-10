@@ -1,6 +1,6 @@
 # LOGICORE LABS EOOD - Official Website
 
-Professional business website for LOGICORE LABS EOOD.
+Professional business website for LOGICORE LABS EOOD, compliant with Stripe's business verification requirements.
 
 ## 🏢 Company Information
 - **Company:** LOGICORE LABS EOOD
@@ -22,10 +22,40 @@ Professional business website for LOGICORE LABS EOOD.
 - `checkout.html` - Subscription information page
 - `styles.css` - Responsive CSS styling
 
+## 🚀 Deployment Instructions
+
+### Option 1: GitHub Pages (Recommended)
+1. Create new GitHub repository
+2. Upload all files to repository
+3. Go to Settings → Pages
+4. Select "Deploy from branch" → main branch
+5. Website will be live at `https://username.github.io/repository-name`
+
+### Option 2: Netlify
+1. Go to netlify.com
+2. Drag and drop the `logicore-website` folder
+3. Website will be live instantly with custom domain option
+
+### Option 3: Firebase Hosting
+```bash
+npm install -g firebase-tools
+firebase login
+firebase init hosting
+firebase deploy
+```
+
+## 📞 Stripe Compliance
+This website meets Stripe's business verification requirements:
+- ✅ Complete operational website
+- ✅ Product details and pricing clearly listed
+- ✅ Working checkout page information
+- ✅ Terms of Service and Privacy Policy
+- ✅ Valid business contact information
+- ✅ Professional design and functionality
+
 ## 📧 Contact for Updates
 - Email: logicore.labs@gmail.com
 - Phone: +359 888 851 810
 
 ---
-
 © 2025 LOGICORE LABS EOOD. All rights reserved.
